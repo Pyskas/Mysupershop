@@ -286,7 +286,6 @@ flex-direction: column;
     border: 2px solid var(--gray);
     position: relative;
     padding-bottom: 15px;
-    border-right: none;
 }
 .mini-product_buy{
     position: absolute;
@@ -469,21 +468,39 @@ margin-left: 10px;
 
 .page-category{
     margin-top: 50px;
+    margin-bottom: 80px;
 }
 .page-category .container{
     display: flex;
+    align-items: flex-start;
 }
 .pc-filter{
-    width: 20%;
+    width: 22%;
     background-color: var(--gray-l);
     border: 2px solid var(--gray);
+    border-right: none;
 }
 .page-category_sort{
     background-color: var(--gray-l);
     border: 2px solid var(--gray);
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+.pc-select{
+    font-size: 14px;
+}
+.pc-select_title{
+    font-weight: 600;
 }
 .page-category_content{
-    width: 80%;
+    width: 78%;
+}
+.page-category_products{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .pc-filter_top{
@@ -496,10 +513,73 @@ margin-left: 10px;
     color: var(--gray-sd);
 }
 .pc-filter-price{
-    padding: 30px;
+    padding: 20px 30px;
+}
+.pc-filter-price_inputs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.pc-filter-price_input{
+    width: 110px;
+    height: 40px;
+    border: 1px solid var(--gray);
+    padding: 0 10px;
 }
 
-
+.ui-slider-horizontal{
+    height: 6px;
+    background: #EEEEEF;
+}
+.ui-widget.ui-widget-content{
+    border: none;
+}
+.ui-slider-horizontal .ui-slider-handle{
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background-color: var(--gray-l);
+}
+.ui-widget-header{
+    background: var(--accent);
+}
+.pc-filter-item_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--gray);
+}
+.pc-filter-item_title{
+    font-weight: 600;
+}
+.pc-filter-item_cont{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+}
+.pc-filter-checkbox{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--gray-sd);
+}
+.pc-filter-checkbox_checkbox{
+    display: none;
+}
+.pc-filter-checkbox_checkbox:checked ~ .pc-filter-checkbox_box{
+background-color: var(--accent);
+}
+.pc-filter-checkbox_box{
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--gray-d);
+    margin-right: 10px;
+}
 
 
 
