@@ -39,20 +39,18 @@
     <h2 class="categories_title">Более 2 000 сладостей ждут вас</h2>
     <span class="categories_desc">интернет магазин который поможет вам в любые праздники и по любым поводам отведать сладкого в приятные моменты в жизни</span>
     <div class="categories_items">
-        <div class="categories_item">
+
+
+    @foreach($categories as $cat) 
+    <div class="categories_item">
             <div class="categories_item_icon">
-            <img src="{{ asset('images\cakes.png') }}" alt="">
+            <img src="{{ asset($cat->icon) }}" alt="">
             </div>
-            <h4 class="categories_item_title">Торты</h4>
+            <h4 class="categories_item_title">{{ $cat->title }}</h4>
             <div class="categories_item_count">60</div>
         </div>
-        <div class="categories_item">
-            <div class="categories_item_icon">
-            <img src="{{ asset('images\cakes.png') }}" alt="">
-            </div>
-            <h4 class="categories_item_title">Торты</h4>
-            <div class="categories_item_count">60</div>
-        </div>
+    @endforeach
+        
     </div>
 </div>
 </section>

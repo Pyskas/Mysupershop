@@ -16,6 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('title');
             $table->string('path');
+
+            $table->foreign('product_id')
+            ->references('id')
+            ->on('products')
+            ->onDelete('cascade');
         });
     }
 
