@@ -85,269 +85,262 @@
 <section class="sale">
     <div class="container">
         <h3 class="sale_title">Специальные предложения</h3>
-    <div class="swiper sale-carousel">
-  <div class="swiper-wrapper">
+        <div class="swiper sale-carousel">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide mini-product">
+                    <div class="mini-product_top">
+                    <span class="mini-product_stock">4 шт</span>
+                    <div class="mini-product_action">
+                        <div class="mini-product_compare">
+                        <img src="{{ asset('images\compare.png') }}" alt="">
+                        </div>
+                        <div class="mini-product_like">
+                        <img src="{{ asset('images\like.png') }}" alt="">
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#" class="mini-product_img">
+                    <img src="{{ asset('images\realcake.png') }}" alt="">
+                    </a>
+                    <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
+                    <div class="mini-product_rating">
+                        <div class="mini-product_rating_icon">
+                        <img src="{{ asset('images\rating.png') }}" alt="">
+                        </div>
+                        <span class="mini-product_rating_text">4.7</span>
+                    </div>
+                    <div class="mini-product_price">
+                        <div class="mini-product_price_main">
+                        <span class="mini-product_price_old">900 Р</span>
+                        <span class="mini-product_price_current">600 Р</span>
+                        </div>
+                        <div class="mini-product_price_sale">
+                            <div class="mini-product_price_sale-count">-20%</div>
+                        </div>
+                    </div>
+                    <div class="mini-product_buy">
+                    <img src="{{ asset('images\cart.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide mini-product">
+                    <div class="mini-product_top">
+                    <span class="mini-product_stock">4 шт</span>
+                    <div class="mini-product_action">
+                        <div class="mini-product_compare">
+                        <img src="{{ asset('images\compare.png') }}" alt="">
+                        </div>
+                        <div class="mini-product_like">
+                        <img src="{{ asset('images\like.png') }}" alt="">
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#" class="mini-product_img">
+                    <img src="{{ asset('images\realcake.png') }}" alt="">
+                    </a>
+                    <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
+                    <div class="mini-product_rating">
+                        <div class="mini-product_rating_icon">
+                        <img src="{{ asset('images\rating.png') }}" alt="">
+                        </div>
+                        <span class="mini-product_rating_text">4.7</span>
+                    </div>
+                    <div class="mini-product_price">
+                        <div class="mini-product_price_main">
+                        <span class="mini-product_price_old">900 Р</span>
+                        <span class="mini-product_price_current">600 Р</span>
+                        </div>
+                        <div class="mini-product_price_sale">
+                            <div class="mini-product_price_sale-count">-20%</div>
+                        </div>
+                    </div>
+                    <div class="mini-product_buy">
+                    <img src="{{ asset('images\cart.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide mini-product">
+                    <div class="mini-product_top">
+                    <span class="mini-product_stock">4 шт</span>
+                    <div class="mini-product_action">
+                        <div class="mini-product_compare">
+                        <img src="{{ asset('images\compare.png') }}" alt="">
+                        </div>
+                        <div class="mini-product_like">
+                        <img src="{{ asset('images\like.png') }}" alt="">
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#" class="mini-product_img">
+                    <img src="{{ asset('images\realcake.png') }}" alt="">
+                    </a>
+                    <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
+                    <div class="mini-product_rating">
+                        <div class="mini-product_rating_icon">
+                        <img src="{{ asset('images\rating.png') }}" alt="">
+                        </div>
+                        <span class="mini-product_rating_text">4.7</span>
+                    </div>
+                    <div class="mini-product_price">
+                        <div class="mini-product_price_main">
+                        <span class="mini-product_price_old">900 Р</span>
+                        <span class="mini-product_price_current">600 Р</span>
+                        </div>
+                        <div class="mini-product_price_sale">
+                            <div class="mini-product_price_sale-count">-20%</div>
+                        </div>
+                    </div>
+                    <div class="mini-product_buy">
+                    <img src="{{ asset('images\cart.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide mini-product">
+                    <div class="mini-product_top">
+                    <span class="mini-product_stock">4 шт</span>
+                    <div class="mini-product_action">
+                        <div class="mini-product_compare">
+                        <img src="{{ asset('images\compare.png') }}" alt="">
+                        </div>
+                        <div class="mini-product_like">
+                        <img src="{{ asset('images\like.png') }}" alt="">
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#" class="mini-product_img">
+                    <img src="{{ asset('images\realcake.png') }}" alt="">
+                    </a>
+                    <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
+                    <div class="mini-product_rating">
+                        <div class="mini-product_rating_icon">
+                        <img src="{{ asset('images\rating.png') }}" alt="">
+                        </div>
+                        <span class="mini-product_rating_text">4.7</span>
+                    </div>
+                    <div class="mini-product_price">
+                        <div class="mini-product_price_main">
+                        <span class="mini-product_price_old">900 Р</span>
+                        <span class="mini-product_price_current">600 Р</span>
+                        </div>
+                        <div class="mini-product_price_sale">
+                            <div class="mini-product_price_sale-count">-20%</div>
+                        </div>
+                    </div>
+                    <div class="mini-product_buy">
+                    <img src="{{ asset('images\cart.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide mini-product">
+                    <div class="mini-product_top">
+                    <span class="mini-product_stock">4 шт</span>
+                    <div class="mini-product_action">
+                        <div class="mini-product_compare">
+                        <img src="{{ asset('images\compare.png') }}" alt="">
+                        </div>
+                        <div class="mini-product_like">
+                        <img src="{{ asset('images\like.png') }}" alt="">
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#" class="mini-product_img">
+                    <img src="{{ asset('images\realcake.png') }}" alt="">
+                    </a>
+                    <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
+                    <div class="mini-product_rating">
+                        <div class="mini-product_rating_icon">
+                        <img src="{{ asset('images\rating.png') }}" alt="">
+                        </div>
+                        <span class="mini-product_rating_text">4.7</span>
+                    </div>
+                    <div class="mini-product_price">
+                        <div class="mini-product_price_main">
+                        <span class="mini-product_price_old">900 Р</span>
+                        <span class="mini-product_price_current">600 Р</span>
+                        </div>
+                        <div class="mini-product_price_sale">
+                            <div class="mini-product_price_sale-count">-20%</div>
+                        </div>
+                    </div>
+                    <div class="mini-product_buy">
+                    <img src="{{ asset('images\cart.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide mini-product">
+                    <div class="mini-product_top">
+                    <span class="mini-product_stock">4 шт</span>
+                    <div class="mini-product_action">
+                        <div class="mini-product_compare">
+                        <img src="{{ asset('images\compare.png') }}" alt="">
+                        </div>
+                        <div class="mini-product_like">
+                        <img src="{{ asset('images\like.png') }}" alt="">
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#" class="mini-product_img">
+                    <img src="{{ asset('images\realcake.png') }}" alt="">
+                    </a>
+                    <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
+                    <div class="mini-product_rating">
+                        <div class="mini-product_rating_icon">
+                        <img src="{{ asset('images\rating.png') }}" alt="">
+                        </div>
+                        <span class="mini-product_rating_text">4.7</span>
+                    </div>
+                    <div class="mini-product_price">
+                        <div class="mini-product_price_main">
+                        <span class="mini-product_price_old">900 Р</span>
+                        <span class="mini-product_price_current">600 Р</span>
+                        </div>
+                        <div class="mini-product_price_sale">
+                            <div class="mini-product_price_sale-count">-20%</div>
+                        </div>
+                    </div>
+                    <div class="mini-product_buy">
+                    <img src="{{ asset('images\cart.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide mini-product">
+                    <div class="mini-product_top">
+                    <span class="mini-product_stock">4 шт</span>
+                    <div class="mini-product_action">
+                        <div class="mini-product_compare">
+                        <img src="{{ asset('images\compare.png') }}" alt="">
+                        </div>
+                        <div class="mini-product_like">
+                        <img src="{{ asset('images\like.png') }}" alt="">
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#" class="mini-product_img">
+                    <img src="{{ asset('images\realcake.png') }}" alt="">
+                    </a>
+                    <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
+                    <div class="mini-product_rating">
+                        <div class="mini-product_rating_icon">
+                        <img src="{{ asset('images\rating.png') }}" alt="">
+                        </div>
+                        <span class="mini-product_rating_text">4.7</span>
+                    </div>
+                    <div class="mini-product_price">
+                        <div class="mini-product_price_main">
+                        <span class="mini-product_price_old">900 Р</span>
+                        <span class="mini-product_price_current">600 Р</span>
+                        </div>
+                        <div class="mini-product_price_sale">
+                            <div class="mini-product_price_sale-count">-20%</div>
+                        </div>
+                    </div>
+                    <div class="mini-product_buy">
+                    <img src="{{ asset('images\cart.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
 
-  <div class="sale-carousel-nav">
-    <div class="sale-carousel-pagination"></div>
+            
+            <div class="swiper-pagination swiper__pagination"></div>
 
-    <div class="sale-carousel-arrows">
-    <div class="sale-carousel-prev"></div>
-    <div class="sale-carousel-next"></div>
-    </div>
-    </div>
-    <div class="swiper-slide mini-product">
-        <div class="mini-product_top">
-        <span class="mini-product_stock">4 шт</span>
-        <div class="mini-product_action">
-            <div class="mini-product_compare">
-            <img src="{{ asset('images\compare.png') }}" alt="">
-            </div>
-            <div class="mini-product_like">
-            <img src="{{ asset('images\like.png') }}" alt="">
-            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
-        </div>
-        <a href="#" class="mini-product_img">
-        <img src="{{ asset('images\realcake.png') }}" alt="">
-        </a>
-        <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
-        <div class="mini-product_rating">
-            <div class="mini-product_rating_icon">
-            <img src="{{ asset('images\rating.png') }}" alt="">
-            </div>
-            <span class="mini-product_rating_text">4.7</span>
-        </div>
-        <div class="mini-product_price">
-            <div class="mini-product_price_main">
-            <span class="mini-product_price_old">900 Р</span>
-            <span class="mini-product_price_current">600 Р</span>
-            </div>
-            <div class="mini-product_price_sale">
-                <div class="mini-product_price_sale-count">-20%</div>
-            </div>
-        </div>
-        <div class="mini-product_buy">
-        <img src="{{ asset('images\cart.png') }}" alt="">
-        </div>
-    </div>
-    <div class="swiper-slide mini-product">
-        <div class="mini-product_top">
-        <span class="mini-product_stock">4 шт</span>
-        <div class="mini-product_action">
-            <div class="mini-product_compare">
-            <img src="{{ asset('images\compare.png') }}" alt="">
-            </div>
-            <div class="mini-product_like">
-            <img src="{{ asset('images\like.png') }}" alt="">
-            </div>
-        </div>
-        </div>
-        <a href="#" class="mini-product_img">
-        <img src="{{ asset('images\realcake.png') }}" alt="">
-        </a>
-        <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
-        <div class="mini-product_rating">
-            <div class="mini-product_rating_icon">
-            <img src="{{ asset('images\rating.png') }}" alt="">
-            </div>
-            <span class="mini-product_rating_text">4.7</span>
-        </div>
-        <div class="mini-product_price">
-            <div class="mini-product_price_main">
-            <span class="mini-product_price_old">900 Р</span>
-            <span class="mini-product_price_current">600 Р</span>
-            </div>
-            <div class="mini-product_price_sale">
-                <div class="mini-product_price_sale-count">-20%</div>
-            </div>
-        </div>
-        <div class="mini-product_buy">
-        <img src="{{ asset('images\cart.png') }}" alt="">
-        </div>
-    </div>
-    <div class="swiper-slide mini-product">
-        <div class="mini-product_top">
-        <span class="mini-product_stock">4 шт</span>
-        <div class="mini-product_action">
-            <div class="mini-product_compare">
-            <img src="{{ asset('images\compare.png') }}" alt="">
-            </div>
-            <div class="mini-product_like">
-            <img src="{{ asset('images\like.png') }}" alt="">
-            </div>
-        </div>
-        </div>
-        <a href="#" class="mini-product_img">
-        <img src="{{ asset('images\realcake.png') }}" alt="">
-        </a>
-        <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
-        <div class="mini-product_rating">
-            <div class="mini-product_rating_icon">
-            <img src="{{ asset('images\rating.png') }}" alt="">
-            </div>
-            <span class="mini-product_rating_text">4.7</span>
-        </div>
-        <div class="mini-product_price">
-            <div class="mini-product_price_main">
-            <span class="mini-product_price_old">900 Р</span>
-            <span class="mini-product_price_current">600 Р</span>
-            </div>
-            <div class="mini-product_price_sale">
-                <div class="mini-product_price_sale-count">-20%</div>
-            </div>
-        </div>
-        <div class="mini-product_buy">
-        <img src="{{ asset('images\cart.png') }}" alt="">
-        </div>
-    </div>
-    <div class="swiper-slide mini-product">
-        <div class="mini-product_top">
-        <span class="mini-product_stock">4 шт</span>
-        <div class="mini-product_action">
-            <div class="mini-product_compare">
-            <img src="{{ asset('images\compare.png') }}" alt="">
-            </div>
-            <div class="mini-product_like">
-            <img src="{{ asset('images\like.png') }}" alt="">
-            </div>
-        </div>
-        </div>
-        <a href="#" class="mini-product_img">
-        <img src="{{ asset('images\realcake.png') }}" alt="">
-        </a>
-        <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
-        <div class="mini-product_rating">
-            <div class="mini-product_rating_icon">
-            <img src="{{ asset('images\rating.png') }}" alt="">
-            </div>
-            <span class="mini-product_rating_text">4.7</span>
-        </div>
-        <div class="mini-product_price">
-            <div class="mini-product_price_main">
-            <span class="mini-product_price_old">900 Р</span>
-            <span class="mini-product_price_current">600 Р</span>
-            </div>
-            <div class="mini-product_price_sale">
-                <div class="mini-product_price_sale-count">-20%</div>
-            </div>
-        </div>
-        <div class="mini-product_buy">
-        <img src="{{ asset('images\cart.png') }}" alt="">
-        </div>
-    </div>
-    <div class="swiper-slide mini-product">
-        <div class="mini-product_top">
-        <span class="mini-product_stock">4 шт</span>
-        <div class="mini-product_action">
-            <div class="mini-product_compare">
-            <img src="{{ asset('images\compare.png') }}" alt="">
-            </div>
-            <div class="mini-product_like">
-            <img src="{{ asset('images\like.png') }}" alt="">
-            </div>
-        </div>
-        </div>
-        <a href="#" class="mini-product_img">
-        <img src="{{ asset('images\realcake.png') }}" alt="">
-        </a>
-        <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
-        <div class="mini-product_rating">
-            <div class="mini-product_rating_icon">
-            <img src="{{ asset('images\rating.png') }}" alt="">
-            </div>
-            <span class="mini-product_rating_text">4.7</span>
-        </div>
-        <div class="mini-product_price">
-            <div class="mini-product_price_main">
-            <span class="mini-product_price_old">900 Р</span>
-            <span class="mini-product_price_current">600 Р</span>
-            </div>
-            <div class="mini-product_price_sale">
-                <div class="mini-product_price_sale-count">-20%</div>
-            </div>
-        </div>
-        <div class="mini-product_buy">
-        <img src="{{ asset('images\cart.png') }}" alt="">
-        </div>
-    </div>
-    <div class="swiper-slide mini-product">
-        <div class="mini-product_top">
-        <span class="mini-product_stock">4 шт</span>
-        <div class="mini-product_action">
-            <div class="mini-product_compare">
-            <img src="{{ asset('images\compare.png') }}" alt="">
-            </div>
-            <div class="mini-product_like">
-            <img src="{{ asset('images\like.png') }}" alt="">
-            </div>
-        </div>
-        </div>
-        <a href="#" class="mini-product_img">
-        <img src="{{ asset('images\realcake.png') }}" alt="">
-        </a>
-        <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
-        <div class="mini-product_rating">
-            <div class="mini-product_rating_icon">
-            <img src="{{ asset('images\rating.png') }}" alt="">
-            </div>
-            <span class="mini-product_rating_text">4.7</span>
-        </div>
-        <div class="mini-product_price">
-            <div class="mini-product_price_main">
-            <span class="mini-product_price_old">900 Р</span>
-            <span class="mini-product_price_current">600 Р</span>
-            </div>
-            <div class="mini-product_price_sale">
-                <div class="mini-product_price_sale-count">-20%</div>
-            </div>
-        </div>
-        <div class="mini-product_buy">
-        <img src="{{ asset('images\cart.png') }}" alt="">
-        </div>
-    </div>
-    <div class="swiper-slide mini-product">
-        <div class="mini-product_top">
-        <span class="mini-product_stock">4 шт</span>
-        <div class="mini-product_action">
-            <div class="mini-product_compare">
-            <img src="{{ asset('images\compare.png') }}" alt="">
-            </div>
-            <div class="mini-product_like">
-            <img src="{{ asset('images\like.png') }}" alt="">
-            </div>
-        </div>
-        </div>
-        <a href="#" class="mini-product_img">
-        <img src="{{ asset('images\realcake.png') }}" alt="">
-        </a>
-        <a href="#" class="mini-product_title">Торт Негр в Пене 600 рублей/шоколад ваниль</a>
-        <div class="mini-product_rating">
-            <div class="mini-product_rating_icon">
-            <img src="{{ asset('images\rating.png') }}" alt="">
-            </div>
-            <span class="mini-product_rating_text">4.7</span>
-        </div>
-        <div class="mini-product_price">
-            <div class="mini-product_price_main">
-            <span class="mini-product_price_old">900 Р</span>
-            <span class="mini-product_price_current">600 Р</span>
-            </div>
-            <div class="mini-product_price_sale">
-                <div class="mini-product_price_sale-count">-20%</div>
-            </div>
-        </div>
-        <div class="mini-product_buy">
-        <img src="{{ asset('images\cart.png') }}" alt="">
-        </div>
-    </div>
-  </div>
-  <div class="swiper-pagination"></div>
-
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-
-</div>
     </div>
 </section>
 <section class="info">
@@ -365,29 +358,31 @@
 @endsection
 
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-     const header_carousel = new Swiper('.header-carousel', {
-        loop:true,
-  pagination: {
-    el: '.header-carousel-pagination',
-    clickable: true,
-  },
-});
+<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+<script>
+//      const header_carousel = new Swiper('.header-carousel', {
+//         loop:true,
+//   pagination: {
+//     el: '.header-carousel-pagination',
+//     clickable: true,
+//   },
+// });
 
-const sale_carousel = new Swiper('.sale-carousel', {
-        loop:true,
-        slidesPerView: 5,
-        spaceBetween:0,
-        pagination: {
-    el: '.sale-carousel-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.sale-carousel-next',
-    prevEl: '.sale-carousel-prev',
-  },
-});
+// const sale_carousel = new Swiper('.sale-carousel', {
+//         // loop:true,
+//         // slidesPerView: 5,
+//         // spaceBetween:0,
+//         pagination: {
+//             el: '.swiper-pagination',
+//             clickable: true,
+//         },
+//         // clickable: true,
+//         navigation: {
+//             nextEl: '.swiper-button-next',
+//             prevEl: '.swiper-button-prev',
+//         },
+//   },
+// );
 
-    </script>
+</script>
 @endsection

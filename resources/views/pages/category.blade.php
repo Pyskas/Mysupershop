@@ -41,12 +41,13 @@
             </div>
             <div class="pc-filter-price">
 
-<div class="pc-filter-price_inputs">
-
-<input type="text" id="filter-price-slider-from" class="pc-filter-price_input" name="price_from" placeholder="От 400">
-<input type="text" id="filter-price-slider-to" class="pc-filter-price_input" name="price_to" placeholder="До 7000">
-</div>
-<div id="filter-price-slider" class="pc-filter-price_slider"></div>
+    <div class="pc-filter-price_inputs">
+        <input  type="text" id="filter-price-slider-from" class="pc-filter-price_input" name="price_from" placeholder="От 400">
+        <input type="text" id="filter-price-slider-to" class="pc-filter-price_input" name="price_to" placeholder="До 7000">
+    </div>
+    <div id="filter-price-slider" class="pc-filter-price_slider">
+        
+    </div>
             </div>
             <div class="pc-filter_item">
                 <div class="pc-filter-item_top">
@@ -407,9 +408,9 @@
     $(document).ready(function(){
         $('#filter-price-slider').slider({
             range:true,
-            min:0,
-            max:9999,
-            values: ['1000', '9000'],
+            min: 0,
+            max: 9000,
+            values: ['0', '9000'],
             slide: function(event, ui) {
                 $('#filter-price-slider-from').val(ui.values[0]);
                 $('#filter-price-slider-to').val(ui.values[1]);

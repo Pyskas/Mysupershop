@@ -134,14 +134,15 @@ const sale_carousel = new Swiper('.sale-carousel', {
         slidesPerView: 5,
         spaceBetween:0,
         pagination: {
-    el: '.sale-carousel-pagination',
-    clickable: true,
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
   },
-  navigation: {
-    nextEl: '.sale-carousel-next',
-    prevEl: '.sale-carousel-prev',
-  },
-});
+);
 
     </script>
    
