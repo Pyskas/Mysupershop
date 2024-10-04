@@ -71,12 +71,12 @@
                 <img src="{{ asset('images\like.png') }}" alt="">
                 </div>
                 </div>
-                <div class="ml-action_cart">
+                <a href="{{ route('cart') }}" class="ml-action_cart">
                     <div class="ml-action_cart_icon">
                 <img src="{{ asset('images\cart.png') }}" alt="">
                 </div>
                 <div class="ml-action_cart_text">Корзина</div>
-                </div>
+                </a>
             </div>
         </div>
     </div>

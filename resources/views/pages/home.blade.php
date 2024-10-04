@@ -42,13 +42,13 @@
 
 
     @foreach($categories as $cat) 
-    <div class="categories_item">
+    <a href="{{ route('catalog', $cat->hash) }}" class="categories_item">
             <div class="categories_item_icon">
             <img src="{{ asset($cat->icon) }}" alt="">
             </div>
             <h4 class="categories_item_title">{{ $cat->title }}</h4>
             <div class="categories_item_count">60</div>
-        </div>
+        </a>
     @endforeach
         
     </div>

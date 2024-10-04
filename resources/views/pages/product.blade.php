@@ -12,14 +12,14 @@
 <li class="breadcrumbs_item"><a href="#" class="breadcrumbs_el">Торты</a>
 </li>
 <li class="breadcrumbs_item">
-    <span class="breadcrumbs_el">Торт "Каталонский Англицизм"</span>
+    <span class="breadcrumbs_el">{{ $product->title }}</span>
 </li>
 </ul>
 </div>
 </div>
 
 <div class="container">
-<h1 class="page-title">Торт "Каталонский Англицизм"</h1>
+<h1 class="page-title">{{ $product->title }}</h1>
 </div>
 
 

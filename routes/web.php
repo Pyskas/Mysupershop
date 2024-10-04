@@ -13,17 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
-
-
-Route::get('/category', function () {
-    return view('pages/category');
-});
-
-Route::get('/product', function () {
-    return view('pages/product');
-});
-
-Route::get('/cart', function () {
-    return view('pages/cart');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/catalog/{hash}', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('catalog');
+Route::get('/product/{hash}',  [\App\Http\Controllers\ProductController::class, 'index'])->name('product');
+Route::get('/cart',  [\App\Http\Controllers\CartController::class, 'index'])->name('cart');

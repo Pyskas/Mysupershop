@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('top')->nullable();
             $table->integer('sort')->default(1);
             $table->boolean('status')->default(1);
+            $table->string('hash')->unique();
             $table->timestamps();
         });
     }

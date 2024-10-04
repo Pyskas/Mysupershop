@@ -132,6 +132,8 @@ body{
 .ml-action_cart{
     display: flex;
     align-items: center;
+    color: var(--text);
+    text-decoration: none;
 }
 .ml-action_cart_text{
     font-size: 14px;
@@ -246,8 +248,27 @@ justify-content: center;
 flex-direction: column;
 }
 .categories_items{
-    display: flex;
-    gap: 80px;
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: repeat(4, 1fr);
+}
+.categories_item{
+    border: 2px solid var(--gray);
+    height: 200px ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center;
+    flex-direction: column;
+    border-right:none;
+    color: var(--text);
+    text-decoration: none;
+    
+}
+.categories_item:nth-child(4n){
+    border-right: 2px solid var(--gray);
+}
+.categories_item:last-child{
+    border-right: 2px solid var(--gray);
 }
 .categories_item_icon{
     margin-bottom: 15px;
