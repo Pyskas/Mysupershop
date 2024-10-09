@@ -72,6 +72,7 @@
                 </div>
                 </div>
                 <a href="{{ route('cart') }}" class="ml-action_cart">
+                    <span class="ml-action_cart_count">0</span>
                     <div class="ml-action_cart_icon">
                 <img src="{{ asset('images\cart.png') }}" alt="">
                 </div>
@@ -148,10 +149,18 @@ const sale_carousel = new Swiper('.sale-carousel', {
    
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-    if(window.location.pathname != '/'){
+    $(document).ready(function(){
+        if(window.location.pathname != '/'){
         $('.list-cat_drop').hide()
-
     }
+
+    let cart = JSON.parse(localStorage.getItem('cart'))
+
+    $('.ml-action_cart_count').text(cart.length)
+
+    })
+    
+
 </script>
 
 @yield('script')

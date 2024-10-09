@@ -24,52 +24,8 @@
     <div class="container">
         <div class="page-cart-main">
             <div class="page-cart-product-list">
-                <div class="page-cart-product-list-item">
-                    <div class="page-cart-product-list-item_info-wrap">
-                    <div class="page-cart-product-list-item_img">
-                    <img src="{{ asset('images\realcake.png') }}" alt="">
-                    </div>
-                    <div class="page-cart-product-list-item_info">
-                        <a href="#" class="page-cart-product-list-item_title">Торт "Каталонский Англицизм"</a>
-                        <div class="page-cart-product-list-item_options">
-                            <span>шоколадный</span>
-                            <span>144x123x123</span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="page-cart-product-list-item_count">
-    <span class="page-cart-product-list-item_count_minus">-</span>
-        <input type="text" name="count" value="1">
-        <span class="page-cart-product-list-item_count_plus">+</span>
-    </div>
-    <div class="page-cart-product-list-item_price">600 P</div>
-    <div class="page-cart-product-list-item_remove">
-    <img src="{{ asset('images\cart-remove.png') }}" alt="">
-    </div>
-                </div>
-                <div class="page-cart-product-list-item">
-                    <div class="page-cart-product-list-item_info-wrap">
-                    <div class="page-cart-product-list-item_img">
-                    <img src="{{ asset('images\realcake.png') }}" alt="">
-                    </div>
-                    <div class="page-cart-product-list-item_info">
-                        <a href="#" class="page-cart-product-list-item_title">Торт "Каталонский Англицизм"</a>
-                        <div class="page-cart-product-list-item_options">
-                            <span>шоколадный</span>
-                            <span>144x123x123</span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="page-cart-product-list-item_count">
-    <span class="page-cart-product-list-item_count_minus">-</span>
-        <input type="text" name="count" value="1">
-        <span class="page-cart-product-list-item_count_plus">+</span>
-    </div>
-    <div class="page-cart-product-list-item_price">600 P</div>
-    <div class="page-cart-product-list-item_remove">
-    <img src="{{ asset('images\cart-remove.png') }}" alt="">
-    </div>
-                </div>
+                
+               
             </div>
             <div class="pcart-main-contact">
                 <span class="pcart-main-contact_title">1.Контактная информация</span>
@@ -145,7 +101,38 @@
 @section('script')
 <script>
     $(document).ready(function(){
-        
+        let cart = JSON.parse(localStorage.getItem('cart'))
+
+        let output = ``
+        cart.forEach(item => {
+            
+        })
+
+        $('.page-cart-product-list').html(`
+                <div class="page-cart-product-list-item">
+                    <div class="page-cart-product-list-item_info-wrap">
+                    <div class="page-cart-product-list-item_img">
+                    <img src="{{ asset('images/realcake.png') }}" alt="">
+                    </div>
+                    <div class="page-cart-product-list-item_info">
+                        <a href="#" class="page-cart-product-list-item_title">Торт "Каталонский Англицизм"</a>
+                        <div class="page-cart-product-list-item_options">
+                            <span>шоколадный</span>
+                            <span>144x123x123</span>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="page-cart-product-list-item_count">
+    <span class="page-cart-product-list-item_count_minus">-</span>
+        <input type="text" name="count" value="1">
+        <span class="page-cart-product-list-item_count_plus">+</span>
+    </div>
+    <div class="page-cart-product-list-item_price">600 P</div>
+    <div class="page-cart-product-list-item_remove">
+    <img src="{{ asset('images/cart-remove.png') }}" alt="">
+    </div>
+                </div>
+        `)
     })
 </script>
 @endsection

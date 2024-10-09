@@ -187,10 +187,31 @@
                 product_title: title,
                 product_img: img_path,
                 product_price: price,
+                count: 1
             }
 
-            
-           localStorage.setItem('cart', JSON.stringify(product))
+            let result;
+            let cart = JSON.parse(localStorage.getItem('cart'))
+
+            if (cart == null){
+                result = [product]
+            }else{
+                let match = false
+                cart.map(item => {
+                    if (item.product_id == product.product_id){
+                        match = true
+                        return item.count += 1
+                    }
+                })
+                if (match){
+                    result = cart
+                } else{
+                    result = [...cart, product]
+                }
+            }
+
+            localStorage.setItem('cart' , JSON.stringify(result))
+
         })
     })
 </script>

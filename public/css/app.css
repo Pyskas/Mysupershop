@@ -134,6 +134,20 @@ body{
     align-items: center;
     color: var(--text);
     text-decoration: none;
+    position: relative;
+}
+.ml-action_cart_count{
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F4F4F4;
 }
 .ml-action_cart_text{
     font-size: 14px;
