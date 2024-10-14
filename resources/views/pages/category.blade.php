@@ -210,6 +210,8 @@
                 }
             }
 
+            $('.ml-action_cart_count').text(result.length)
+
             localStorage.setItem('cart' , JSON.stringify(result))
 
         })

@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function index($hash)
     {
-        $data['product'] = Product::where('hash', $hash)->first();
+        $data['product'] = Product::with('images', 'category', 'options')->where('hash', $hash)->first();
 
         return view('pages/product', $data);
     }

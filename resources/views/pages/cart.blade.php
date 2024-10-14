@@ -71,20 +71,20 @@
 <span class="pcart-main-order_title">Ваш заказ</span>
 
 <div class="pcart-main-order_info">
-<div class="pcart-main-order_info-item">
+<div class="pcart-main-order_info-item result-products-count">
 <div class="pcart-main-order_info-item_title">Всего товаров</div>
 <div class="pcart-main-order_info-item_sep">......</div>
-<div class="pcart-main-order_info-item_val">4 шт</div>
+<div class="pcart-main-order_info-item_val"><span class="num">0</span> шт</div>
 </div>
-<div class="pcart-main-order_info-item">
+<div class="pcart-main-order_info-item result-products-sum">
 <div class="pcart-main-order_info-item_title">Сумма заказа</div>
 <div class="pcart-main-order_info-item_sep">.......</div>
-<div class="pcart-main-order_info-item_val">1 200 Р</div>
+<div class="pcart-main-order_info-item_val"><span class="num">0</span> Р</div>
 </div>
-<div class="pcart-main-order_info-item">
+<div class="pcart-main-order_info-item result-products-itog">
 <div class="pcart-main-order_info-item_title">К оплате</div>
 <div class="pcart-main-order_info-item_sep">...............</div>
-<div class="pcart-main-order_info-item_val result">1 200 Р</div>
+<div class="pcart-main-order_info-item_val result"><span class="num">0</span>Р</div>
 </div>
 <div class="pcart-main-order_buy-wrap">
 <button class="pcart-main-order_buy">Оформить заказ</button>
@@ -101,21 +101,32 @@
 @section('script')
 <script>
     $(document).ready(function(){
+
+        let calculate_result_sum = function(cart){
+        if(cart != null){
+            let result = 0;
+
+            cart.forEach(item => {
+                result += item.product_price * item.count
+            })
+            return result
+        }
+    }
+
         let cart = JSON.parse(localStorage.getItem('cart'))
 
         let output = ``
-        cart.forEach(item => {
-            
-        })
 
-        $('.page-cart-product-list').html(`
-                <div class="page-cart-product-list-item">
+        cart.forEach(item => {
+            output += `
+            <div class="page-cart-product-list-item">
+            <input type="hidden" name="product_id" value="${item.product_id}">
                     <div class="page-cart-product-list-item_info-wrap">
                     <div class="page-cart-product-list-item_img">
-                    <img src="{{ asset('images/realcake.png') }}" alt="">
+                    <img src="${item.product_img}" alt="">
                     </div>
                     <div class="page-cart-product-list-item_info">
-                        <a href="#" class="page-cart-product-list-item_title">Торт "Каталонский Англицизм"</a>
+                        <a href="#" class="page-cart-product-list-item_title">${item.product_title}</a>
                         <div class="page-cart-product-list-item_options">
                             <span>шоколадный</span>
                             <span>144x123x123</span>
@@ -124,15 +135,83 @@
                     </div>
                     <div class="page-cart-product-list-item_count">
     <span class="page-cart-product-list-item_count_minus">-</span>
-        <input type="text" name="count" value="1">
+        <input type="text" name="count" value="${item.count}">
         <span class="page-cart-product-list-item_count_plus">+</span>
     </div>
-    <div class="page-cart-product-list-item_price">600 P</div>
+    <div class="page-cart-product-list-item_price">${item.product_price}</div>
     <div class="page-cart-product-list-item_remove">
     <img src="{{ asset('images/cart-remove.png') }}" alt="">
     </div>
                 </div>
-        `)
+            `
+        })
+
+        $('.page-cart-product-list').html(output)
+
+        $('.result-products-count .pcart-main-order_info-item_val .num').text(cart.length)
+        $('.result-products-sum .pcart-main-order_info-item_val .num').text(calculate_result_sum(cart))
+        $('.result-products-itog .pcart-main-order_info-item_val .num').text(calculate_result_sum(cart))
+
+        $(document).on('click', '.page-cart-product-list-item_remove', function(){
+            let id = $(this).parents('.page-cart-product-list-item').find('input[name="product_id"]').val()
+            let cart = JSON.parse(localStorage.getItem('cart'))
+
+            $(this).parents('.page-cart-product-list-item').remove()
+
+            cart = cart.filter(item =>{
+                if(item.product_id != id){
+                    return item
+                }
+            })
+
+            $('.ml-action_cart_count').text(cart.length)
+            $('.result-products-count .pcart-main-order_info-item_val .num').text(cart.length)
+        $('.result-products-sum .pcart-main-order_info-item_val .num').text(calculate_result_sum(cart))
+        $('.result-products-itog .pcart-main-order_info-item_val .num').text(calculate_result_sum(cart))
+
+            localStorage.setItem('cart',JSON.stringify(cart))
+        })
+
+        $(document).on('click', '.page-cart-product-list-item_count_plus', function(){
+            let id = $(this).parents('.page-cart-product-list-item').find('input[name="product_id"]').val()
+            let count = $(this).siblings('input[name="count"]').val()
+            let cart = JSON.parse(localStorage.getItem('cart'))
+
+            $(this).siblings('input[name="count"]').val(Number(count)+1)
+             cart.map(item =>{
+                if(item.product_id == id){
+                    return item.count += 1
+                }
+            })
+
+            $('.result-products-count .pcart-main-order_info-item_val .num').text(cart.length)
+        $('.result-products-sum .pcart-main-order_info-item_val .num').text(calculate_result_sum(cart))
+        $('.result-products-itog .pcart-main-order_info-item_val .num').text(calculate_result_sum(cart))
+
+            localStorage.setItem('cart',JSON.stringify(cart))
+        })
+        $(document).on('click', '.page-cart-product-list-item_count_minus', function(){
+            let id = $(this).parents('.page-cart-product-list-item').find('input[name="product_id"]').val()
+            let count = $(this).siblings('input[name="count"]').val()
+            let cart = JSON.parse(localStorage.getItem('cart'))
+            if(count > 1){
+                $(this).siblings('input[name="count"]').val(Number(count)-1)
+                cart.map(item =>{
+                if(item.product_id == id){
+                    return item.count -= 1
+                }
+            })
+
+            $('.result-products-count .pcart-main-order_info-item_val .num').text(cart.length)
+        $('.result-products-sum .pcart-main-order_info-item_val .num').text(calculate_result_sum(cart))
+        $('.result-products-itog .pcart-main-order_info-item_val .num').text(calculate_result_sum(cart))
+
+            localStorage.setItem('cart',JSON.stringify(cart))
+            }
+           
+        })
+        
     })
+
 </script>
 @endsection

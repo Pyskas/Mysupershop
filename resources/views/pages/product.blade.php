@@ -5,11 +5,12 @@
 <div class="breadcrumbs">
     <div class="container">
 <ul class="breadcrumbs_list">
-    <li class="breadcrumbs_item"><a href="#" class="breadcrumbs_el"><img src="{{ asset('images\home.png') }}" alt="">
+    <li class="breadcrumbs_item"><a href="/" class="breadcrumbs_el"><img src="{{ asset('images\home.png') }}" alt="">
 Главная
 </a>
 </li>
-<li class="breadcrumbs_item"><a href="#" class="breadcrumbs_el">Торты</a>
+<li class="breadcrumbs_item">
+    <a href="{{ route('catalog', $product->category->hash) }}" class="breadcrumbs_el">{{ $product->category->title }}</a>
 </li>
 <li class="breadcrumbs_item">
     <span class="breadcrumbs_el">{{ $product->title }}</span>
@@ -27,19 +28,21 @@
     <div class="page-product-wrap">
     <div class="container">
         <div class="page-product-gallery">
+
+        @if($product->images->isNotEmpty())
 <div class="page-product-gallery_thumbs">
 <div class="page-product-gallery_thumbs_item active">
-<img src="{{ asset('images\realcake.png') }}" alt="">
+<img src="{{ asset($product->image_path) }}" alt="">
 </div>
+    @foreach($product->images as $img) 
 <div class="page-product-gallery_thumbs_item">
-<img src="{{ asset('images\realcake.png') }}" alt="">
+<img src="{{ asset($img->path) }}" alt="">
 </div>
-<div class="page-product-gallery_thumbs_item">
-<img src="{{ asset('images\realcake.png') }}" alt="">
+@endforeach
 </div>
-</div>
+@endif
 <div class="page-product-gallery_main">
-<img src="{{ asset('images\realcake.png') }}" alt="">
+<img src="{{ asset($product->image_path) }}" alt="">
 </div>
         </div>
         <div class="page-product-main">
@@ -65,6 +68,7 @@
 <div class="page-product-main-options">
  <span class="page-product-main-options_title">Глазурь</span>
  <div class="page-product-main-options_items">
+    
     <div class="page-product-main-options_item active">
     <img src="{{ asset('images\color1.png') }}" alt="">
     </div>
@@ -84,10 +88,15 @@
 
 </div>
 <div class="page-product-main-action">
+
+    <input type="hidden" name="product_id" value="{{ $product->id }}">
+    <input type="hidden" name="product_title" value="{{ $product->title }}">
+    <input type="hidden" name="product_price" value="{{ $product->price }}">
+    <input type="hidden" name="product_img" value="{{ $product->image_path }}">
     <div class="page-product-main-action_price">
     <div class="page-product-main-action_price_main">
             <span class="page-product-main-action_price_old">900 Р</span>
-            <span class="page-product-main-action_price_current">600 Р</span>
+            <span class="page-product-main-action_price_current">{{ $product->price }}</span>
             </div>
             <div class="page-product-main-action_price_sale">
                 <div class="page-product-main-action_price_sale-count">-20%</div>
@@ -128,7 +137,7 @@
                 <a href="#" class="page-product-info_tabs_item">Гарантия</a>
             </div>
             <div class="page-product-info_cont">
-                <p>Шоколадный торт — насыщенный и влажный, с шоколадным кремом или ганашем.</p>
+            {{ $product->description }}
             </div>
         </div>  
         </div>
@@ -167,7 +176,68 @@
 @section('script')
 <script>
     $(document).ready(function(){
-       
+       $('.page-product-gallery_thumbs_item').on('click', function(){
+        let path = $(this).find('img').attr('src')
+        $('.page-product-gallery_main img').attr('src', path)
+        $('.page-product-gallery_thumbs_item').removeClass('active')
+        $(this).addClass('active')
+       })
+
+       $('.page-product-main-action_count_plus').on('click', function(){
+            let count = $(this).siblings('input[name="count"]').val()
+
+            $(this).siblings('input[name="count"]').val(Number(count)+1)
+        })
+        $('.page-product-main-action_count_minus').on('click', function(){
+            let count = $(this).siblings('input[name="count"]').val()
+
+            if(count > 1){
+                $(this).siblings('input[name="count"]').val(Number(count)-1)
+            }
+        })
+
+        $('.page-product-main-action_buy').on('click', function(){
+            
+            let id= $('input[name="product_id"]').val()
+            let title= $('input[name="product_title"]').val()
+            let price= $('input[name="product_price"]').val()
+            let img_path= $('input[name="product_img"]').val()
+            let count= $('input[name="count"]').val()
+
+            let product = {
+                product_id: id,
+                product_title: title,
+                product_img: img_path,
+                product_price: price,
+                count: count
+            }
+
+            let result;
+            let cart = JSON.parse(localStorage.getItem('cart'))
+
+            if (cart == null){
+                result = [product]
+            }else{
+                let match = false
+                cart.map(item => {
+                    if (item.product_id == product.product_id){
+                        match = true
+                        return item.count = Number(item.count) + Number(product.count)
+                    }
+                })
+                if (match){
+                    result = cart
+                } else{
+                    result = [...cart, product]
+                }
+            }
+
+            $('.ml-action_cart_count').text(result.length)
+
+            localStorage.setItem('cart' , JSON.stringify(result))
+
+        })
+
     })
 </script>
 @endsection
