@@ -68,19 +68,11 @@
 <div class="page-product-main-options">
  <span class="page-product-main-options_title">Глазурь</span>
  <div class="page-product-main-options_items">
-    
-    <div class="page-product-main-options_item active">
-    <img src="{{ asset('images\color1.png') }}" alt="">
-    </div>
+    @foreach($product->options as $option)
     <div class="page-product-main-options_item">
-    <img src="{{ asset('images\color2.png') }}" alt="">
+    <img src="{{ asset($option->image) }}" alt="{{$option->title}}">
     </div>
-    <div class="page-product-main-options_item">
-    <img src="{{ asset('images\color3.png') }}" alt="">
-    </div>
-    <div class="page-product-main-options_item">
-    <img src="{{ asset('images\color4.png') }}" alt="">
-    </div>
+    @endforeach
  </div>
 </div>
 <div class="page-product-main-dop">
