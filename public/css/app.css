@@ -853,6 +853,12 @@ color: var(--text);
 .page-product .ms-tags{
     margin-bottom: 60px;
 }
+.page-product-info_content_tab{
+    display: none;
+}
+.page-product-info_content_tab.active{
+    display: block;
+}
 
 /* Page Cart */
 .page-cart{
@@ -1113,6 +1119,7 @@ font-weight: 600;
     color: #fff;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 

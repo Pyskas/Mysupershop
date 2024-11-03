@@ -117,6 +117,7 @@
     @foreach($products as $prod)
     <div class="mini-product">
     <input type="hidden" name="product_id" value="{{ $prod->id }}">
+    <input type="hidden" name="product_hash" value="{{ $prod->hash }}">
         <div class="mini-product_top">
         <span class="mini-product_stock">4 шт</span>
         <div class="mini-product_action">
@@ -181,13 +182,16 @@
             let title= $(this).parents('.mini-product').find('.mini-product_title').text()
             let price= $(this).parents('.mini-product').find('.mini-product_price_current .price').text()
             let img_path= $(this).parents('.mini-product').find('.mini-product_img img').attr('src')
+            let hash= $(this).parents('.mini-product').find('input[name="product_hash"]').val()
 
             let product = {
                 product_id: id,
                 product_title: title,
                 product_img: img_path,
                 product_price: price,
-                count: 1
+                product_hash: hash,
+                count: 1,
+                product_options: []
             }
 
             let result;
@@ -200,7 +204,7 @@
                 cart.map(item => {
                     if (item.product_id == product.product_id){
                         match = true
-                        return item.count += 1
+                        return item.count = Number(item.count) + Number(product.count)
                     }
                 })
                 if (match){

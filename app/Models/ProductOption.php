@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ProductOption extends Model
 {
     use HasFactory;
+
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(ProductOptionGroup::class, 'option_group_id');
+    }
 }

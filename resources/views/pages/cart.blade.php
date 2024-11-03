@@ -118,19 +118,25 @@
         let output = ``
 
         cart.forEach(item => {
+
+            let options= ``
+            if(item.product_options.option_title){
+                options += `
+                    <span>${item.product_options.option_title}</span>
+                `
+            }
+
+
             output += `
             <div class="page-cart-product-list-item">
             <input type="hidden" name="product_id" value="${item.product_id}">
                     <div class="page-cart-product-list-item_info-wrap">
-                    <div class="page-cart-product-list-item_img">
+                    <a href="product/${item.product_hash}" class="page-cart-product-list-item_img">
                     <img src="${item.product_img}" alt="">
-                    </div>
+                    </a>
                     <div class="page-cart-product-list-item_info">
-                        <a href="#" class="page-cart-product-list-item_title">${item.product_title}</a>
-                        <div class="page-cart-product-list-item_options">
-                            <span>шоколадный</span>
-                            <span>144x123x123</span>
-                        </div>
+                        <a href="product/${item.product_hash}" class="page-cart-product-list-item_title">${item.product_title}</a>
+                        <div class="page-cart-product-list-item_options">${options}</div>
                     </div>
                     </div>
                     <div class="page-cart-product-list-item_count">
@@ -209,6 +215,30 @@
             localStorage.setItem('cart',JSON.stringify(cart))
             }
            
+        })
+
+        $('.pcart-main-order_buy').on('click', function(e){
+            e.preventDefault()
+
+            let name = $('input[name="name"]').val()
+            let phone = $('input[name="phone"]').val()
+            let email = $('input[name="email"]').val()
+            let comment = $('textarea[name="comment"]').val()
+
+            $.ajax({
+                url: "{{ route('cart-order') }}",
+                type:"POST",
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    cart: JSON.parse(localStorage.getItem('cart')), name, phone, email, comment
+                },
+                success:function(response){
+                    if(response){
+                        window.location.replace("/cart/thanks")
+                        localStorage.setItem('cart', null)
+                    }
+                },
+            });
         })
         
     })

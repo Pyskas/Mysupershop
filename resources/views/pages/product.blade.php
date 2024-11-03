@@ -65,16 +65,18 @@
             </div>
 </div>
 </div>
+@foreach($product->options->groupBy('option_group_id') as $key => $group)
 <div class="page-product-main-options">
- <span class="page-product-main-options_title">Глазурь</span>
+ <span class="page-product-main-options_title">{{ $options_group->where('id', $key)->first()->title }}</span>
  <div class="page-product-main-options_items">
-    @foreach($product->options as $option)
-    <div class="page-product-main-options_item">
+        @foreach($group as $option)
+    <div class="page-product-main-options_item" data-option-group-id="{{ $key }} "data-option-id="{{ $option->id }}" data-option-title="{{ $option->title }}">
     <img src="{{ asset($option->image) }}" alt="{{$option->title}}">
     </div>
     @endforeach
  </div>
 </div>
+@endforeach
 <div class="page-product-main-dop">
         <span class="page-product-main-dop_title">Другие</span>
 
@@ -85,6 +87,8 @@
     <input type="hidden" name="product_title" value="{{ $product->title }}">
     <input type="hidden" name="product_price" value="{{ $product->price }}">
     <input type="hidden" name="product_img" value="{{ $product->image_path }}">
+    <input type="hidden" name="product_hash" value="{{ $product->hash }}">
+    <input type="hidden" name="with_option" value="{{ $product->options->isNotEmpty() ? 1 : 0 }}">
     <div class="page-product-main-action_price">
     <div class="page-product-main-action_price_main">
             <span class="page-product-main-action_price_old">900 Р</span>
@@ -121,15 +125,20 @@
         <div class="container">
 <div class="page-product-info">
             <div class="page-product-info_tabs">
-                <a href="#" class="page-product-info_tabs_item">Описание товара</a>
-                <a href="#" class="page-product-info_tabs_item">Отзывы о товаре</a>
-                <a href="#" class="page-product-info_tabs_item">Доставка</a>
-                <a href="#" class="page-product-info_tabs_item">Упаковка</a>
-                <a href="#" class="page-product-info_tabs_item">Оплата</a>
-                <a href="#" class="page-product-info_tabs_item">Гарантия</a>
+                <a href="#" class="page-product-info_tabs_item" data-tab="1">Описание товара</a>
+                <a href="#" class="page-product-info_tabs_item" data-tab="2">Отзывы о товаре</a>
+                <a href="#" class="page-product-info_tabs_item" data-tab="3">Доставка</a>
+                <a href="#" class="page-product-info_tabs_item" data-tab="4">Упаковка</a>
+                <a href="#" class="page-product-info_tabs_item" data-tab="5">Оплата</a>
+                <a href="#" class="page-product-info_tabs_item" data-tab="6">Гарантия</a>
             </div>
-            <div class="page-product-info_cont">
-            {{ $product->description }}
+            <div class="page-product-info_content">
+                <div class="page-product-info_content_tab active" data-tab="1"> {{ $product->description }}</div>
+                <div class="page-product-info_content_tab" data-tab="2">Отзывы</div>
+                <div class="page-product-info_content_tab" data-tab="3">Доставка</div>
+                <div class="page-product-info_content_tab" data-tab="4">Упаковка</div>
+                <div class="page-product-info_content_tab" data-tab="5">Оплата</div>
+                <div class="page-product-info_content_tab" data-tab="6">Гарантия</div>
             </div>
         </div>  
         </div>
@@ -168,6 +177,15 @@
 @section('script')
 <script>
     $(document).ready(function(){
+
+        $('.page-product-info_tabs_item').on('click', function(e){
+            e.preventDefault()
+            $('.page-product-info_tabs_item').removeClass('active')
+            $('.page-product-info_content_tab').removeClass('active')
+            $(this).addClass('active')
+            $('.page-product-info_content_tab[data-tab="' + $(this).attr('data-tab') + '"]').addClass('active')
+        })
+
        $('.page-product-gallery_thumbs_item').on('click', function(){
         let path = $(this).find('img').attr('src')
         $('.page-product-gallery_main img').attr('src', path)
@@ -188,20 +206,39 @@
             }
         })
 
+        $('.page-product-main-options_item:first-child').addClass('active')
+        $('.page-product-main-option_item').on('click' ,function (){
+            $('.page-product-main-options_item').removeClass('active')
+            $(this).addClass('active')
+        })
+
         $('.page-product-main-action_buy').on('click', function(){
             
             let id= $('input[name="product_id"]').val()
             let title= $('input[name="product_title"]').val()
             let price= $('input[name="product_price"]').val()
+            let hash = $('input[name="product_hash"]').val()
             let img_path= $('input[name="product_img"]').val()
             let count= $('input[name="count"]').val()
+            let with_option = $('input[name="with_option"]').val()
+
+            let options = {}
+            if(with_option){
+                options = {
+                    option_group-id: $('.page-product-main-option_item.active').attr('data-option-group-id'),
+                    option_id: $('.page-product-main-option_item.active').attr('data-option-id'),
+                    option_title: $('.page-product-main-option_item.active').attr('data-option-title')
+                }
+            }
 
             let product = {
                 product_id: id,
                 product_title: title,
                 product_img: img_path,
                 product_price: price,
-                count: count
+                product_hash: hash,
+                count: count,
+                product_options: options
             }
 
             let result;
